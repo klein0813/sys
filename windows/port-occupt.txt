@@ -1,0 +1,20 @@
+>netstat -ano | findstr 80
+
+get pid
+
+> taskkill /pid PID -t -f
+
+查看一下当前的http服务状态
+>  netsh http show servicestate
+
+get 主控制器pid
+
+打开taskmgr
+
+查找进程
+
+win+r services.msc
+
+关掉服务
+
+https://www.2cto.com/os/201505/399603.html?gsbgno=yxfl63
