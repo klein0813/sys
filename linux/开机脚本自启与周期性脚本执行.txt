@@ -1,0 +1,21 @@
+linux 开机脚本自启与周期性脚本执行
+
+开机脚本自启：
+方式1：
+/etc/rc.local
+
+bash /path/xx.sh
+
+注意：rc.local需要有可执行权限
+若ls -l  /bin/sh
+/bin/sh -> dash
+需将rc.local中的sh改为bash
+
+方式2：
+脚本放入：/etc/init.d/
+
+sudo cp xx.sh /etc/init.d/
+sudo chmod 755 xx.sh
+
+# 执行如下指令，在这里90表明一个优先级，越高表示执行的越晚（将脚本添加到启动脚本）
+sudo update-rc.d monitor.sh defaults 90

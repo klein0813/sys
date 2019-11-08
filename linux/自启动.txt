@@ -1,0 +1,62 @@
+linux 开机脚本自启与周期性脚本执行
+
+开机脚本自启：
+方式1：
+/etc/rc.local
+
+bash /path/xx.sh
+
+注意：rc.local需要有可执行权限
+若ls -l  /bin/sh
+/bin/sh -> dash
+需将rc.local中的sh改为bash
+
+方式2：
+脚本放入：/etc/init.d/
+
+sudo cp xx.sh /etc/init.d/
+sudo chmod 755 xx.sh
+
+# 执行如下指令，在这里90表明一个优先级，越高表示执行的越晚（将脚本添加到启动脚本）
+sudo update-rc.d monitor.sh defaults 90
+
+
+移除Ubuntu开机脚本
+
+sudo update-rc.d -f monitor.sh remove
+
+
+周期性脚本执行:
+1、sudo crontab –e : 修改 crontab 文件. 如果文件不存在会自动创建。 
+# m h  dom mon dow   command
+*/15 * * * * bash /home/user/software/monitor.sh 设置每15分钟执行一次脚本
+
+2、sudo crontab –l : 显示 crontab 文件。 
+
+3、sudo crontab -r : 删除 crontab 文件。
+
+4、sudo crontab -ir : 删除 crontab 文件前提醒用户。
+
+6，cron文件语法:
+
+    　　分     小时    日       月       星期     命令
+
+      　0-59   0-23   1-31   1-12      0-6   command     (取值范围,0表示周日一般一行对应一个任务)
+
+      “*”代表取值范围内的数字,
+
+      “/”代表”每”,
+
+      “-”代表从某个数字到某个数字,
+
+      “,”分开几个离散的数字
+
+7，有的系统中是crond不是cron，视具体情况使用
+
+   service cron start //启动服务
+
+   service cron stop //关闭服务
+
+   service cron restart //重启服务
+
+   service cron reload //重新载入配置

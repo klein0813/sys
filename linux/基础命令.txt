@@ -1,0 +1,58 @@
+重启命令：
+1、reboot
+2、shutdown -r now 立刻重启(root用户使用)
+3、shutdown -r 10 过10分钟自动重启(root用户使用)
+4、shutdown -r 20:35 在时间为20:35时候重启(root用户使用)
+如果是通过shutdown命令设置重启的话，可以用shutdown -c命令取消重启
+
+关机命令：
+1、halt   立刻关机
+2、poweroff 立刻关机
+3、shutdown -h now 立刻关机(root用户使用)
+4、shutdown -h 10 10分钟后自动关机
+
+安装软件：
+sudo apt-get install 软件名(+版本号)
+
+卸载软件：
+1.卸载软件：sudo apt-get remove 软件名(+版本号)
+2.卸载软件并删除依赖：sudo apt-get remove --auto-remove 软件名(+版本号)
+3.清除软件：sudo apt-get purge 软件名(+版本号)
+4.清除软件及依赖：sudo apt-get purge --auto-remove 软件名(+版本号)
+
+netstat与lsof
+netstat查看系统当前系统网络状态信息
+-t : 指明显示TCP端口
+-u : 指明显示UDP端口
+-l : 仅显示监听套接字(LISTEN状态的套接字)
+-p : 显示进程标识符和程序名称，每一个套接字/端口都属于一个程序
+-n : 不进行DNS解析
+-a 显示所有连接的端口
+
+lsof列出当前系统打开文件(list open files)，不过通过-i参数也能查看端口的连接情况
+lsof -i:port
+
+区别：
+1.netstat无权限控制，lsof有权限控制，只能看到本用户
+2.losf能看到pid和用户，可以找到哪个进程占用了这个端口
+
+新建文件夹：mkdir
+新建文件：touch
+error: sign_and_send_pubkey: signing failed: agent refused operation
+solve: 
+	eval "$(ssh-agent -s)"
+	ssh-add
+
+
+dpkg -l | grep nginx
+
+sudo apt remove nginx-common
+
+tar -zxvf nginx-1.14.2.tar.gz
+
+sudo /etc/init.d/apache2 stop
+
+sudo kill -9 XXX
+
+
+
