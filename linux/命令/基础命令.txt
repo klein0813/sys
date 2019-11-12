@@ -36,6 +36,8 @@ lsof -i:port
 1.netstat无权限控制，lsof有权限控制，只能看到本用户
 2.losf能看到pid和用户，可以找到哪个进程占用了这个端口
 
+注意：netstat虽然是无权限控制，但是依然没有权限查看当前用户之外屏process的 PID
+
 新建文件夹：mkdir
 新建文件：touch
 error: sign_and_send_pubkey: signing failed: agent refused operation

@@ -1,0 +1,9 @@
+例如：
+外->内网端口映射
+8008 -> 80
+
+执行：sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8008 
+
+查看是否有端口映射
+执行：sudo iptables -t nat -L | grep -w '8008' | grep -w '80'
+
