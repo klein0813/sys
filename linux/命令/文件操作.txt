@@ -35,3 +35,5 @@ rm filename
     -s:复制成符号连接文件(symbolic link)，即“快捷方式”文件
     -u:若目标文件比源文件旧，更新目标文件
 
+建立软链接
+sudo ln -s  /home/c/Downloads/Postman/Postman   /usr/bin/
